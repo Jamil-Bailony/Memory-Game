@@ -3,6 +3,8 @@
 let cardOpenedNum = 0;
 let toggledCards = [], clickedCard;
 let moves = 0, winCounter = 0;
+let timerId = 0;
+let isTimerOn = false;
 
 
 // Create a list that holds all of your cards
@@ -12,6 +14,8 @@ let cards = document.getElementsByClassName('card');
 let deck = document.querySelector('.deck');
 
 shuffleCards(cards);
+startTimer();
+
 
 
 /*
@@ -27,23 +31,19 @@ shuffleCards(cards);
 
 
 deck.addEventListener('click', function cardClicked(evt) {
+    clickedCard = evt.target;
 
-    if (evt.target.classList.contains('card')) {
-        oldCard = clickedCard;
-        clickedCard = evt.target;
+    if (isClickedCardValid(clickedCard)) {
+        showHideCard(clickedCard);
+        addToggledCard(clickedCard, toggledCards);
 
-        if (isClickedCardValid(clickedCard)) {
-            showHideCard(clickedCard);
-            addToggledCard(clickedCard, toggledCards);
-
-            if (toggledCards.length === 2) {
-                isCardsMatched(toggledCards[0], toggledCards[1]);
-                addMoves();
-                ScoreCheck();
-            }
+        if (toggledCards.length === 2) {
+            isCardsMatched(toggledCards[0], toggledCards[1]);
+            addMoves();
+            ScoreCheck();
         }
-
     }
+
 });
 
 /*
@@ -164,10 +164,38 @@ function hideStare() {
     let stars = document.querySelectorAll('.stars > li');
 
     // reverse the array to hide the last star first
-    for(let i = 2; i >= 0; i--){
-        if(!stars[i].classList.contains('hidden')){
+    for (let i = 2; i >= 0; i--) {
+        if (!stars[i].classList.contains('hidden')) {
             stars[i].classList.add('hidden');
             break;
         }
     }
+}
+
+
+function startTimer() {
+    let start = Date.now(),
+        diff,
+        minutes,
+        seconds,
+        display;
+    const timeElem = document.querySelector('.time');
+
+    function timer() {
+        diff = ((Date.now() - start) / 1000) | 0;
+
+        minutes = Math.floor(diff / 60);
+        seconds = Math.floor(diff % 60);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display = `${minutes}:${seconds}`;
+
+        timeElem.textContent = display;
+
+    }
+
+    timer();
+    timerId = setInterval(timer, 1000);
 }
