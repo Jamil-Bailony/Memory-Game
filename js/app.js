@@ -93,7 +93,6 @@ function shuffleCards(cardsToBeShuffled) {
 function showHideCard(cardTarget) {
 
     cardTarget.classList.toggle('open');
-    cardTarget.classList.toggle('show');
 }
 
 function addToggledCard(cardToBeAdded, arrayTarget) {
@@ -115,9 +114,16 @@ function isCardsMatched(firstCard, secondCard) {
         toggledCards = [];
         return true;
     } else {
+        firstCard.classList.add('notMatch');
+        secondCard.classList.add('notMatch');
+
         setTimeout(function () {
             showHideCard(firstCard);
             showHideCard(secondCard);
+
+            firstCard.classList.remove('notMatch');
+            secondCard.classList.remove('notMatch');
+    
             // empty the array
             toggledCards = [];
         }, 1000);
@@ -259,6 +265,12 @@ function startTheGame(){
     showStars();
 }
 
+function endTheGame(){
+    stopTimer();
+    showScreen(background, 'exit');
+    showSummery();
+}
+
 function cardClicked(evt) {
     clickedElement = evt.target;
 
@@ -276,9 +288,8 @@ function cardClicked(evt) {
         }
 
         if (matchedPair === TOTAL_PAIRS) { // The game is over
-            stopTimer();
-            showScreen(background, 'exit');
-            showSummery();
+            // wait till the animation ends
+            setTimeout(endTheGame, 1500);
         }
     } else if (clickedElement.classList.contains('start--button')) {
         startTheGame();
