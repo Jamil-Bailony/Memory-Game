@@ -4,18 +4,18 @@ This is my second project at Udacity. This game helps your memory :) as it asks 
 ## Table of Contents
 
 * [Installation](#installation)
-* [Usage](#ysage)
+* [Usage](#usage)
 * [Dependencies](#dependencies)
-* [License](#license)
+* [License](#License)
 
 ## Installation
 
-Clone this project to your computer via git:
+Clone this project to your computer using ```git clone``` command:
 
 ```bash
 git clone https://github.com/Jamil-Bailony/Memory-Game.git
 ```
-or download it.
+or download it to your computer from the repository.
 
 ## Usage
 
