@@ -235,6 +235,9 @@ function restartTheGame() {
     for (card of cards) {
         card.className = 'card';
     }
+
+    // emty the cards array
+    toggledCards = [];
     shuffleCards(cards);
 }
 
