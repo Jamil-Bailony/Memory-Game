@@ -1,5 +1,5 @@
 # Memory Game Project
-This is my second project at Udacity. This game help your memory :) as it asks you to filp tow cards and match their shapes.
+This is my second project at Udacity. This game helps your memory :) as it asks you to filp tow cards and match their shapes.
 
 ## Table of Contents
 
