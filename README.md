@@ -1,20 +1,30 @@
 # Memory Game Project
+This is my second project at Udacity. This game help your memory :) as it asks you to filp tow cards and match their shapes.
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Installation](#installation)
+* [Usage](#ysage)
+* [Dependencies](#dependencies)
+* [License](#license)
 
-## Instructions
+## Installation
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Clone this project to your computer via git:
 
-To get started, open `js/app.js` and start building out the app's functionality
+```bash
+git clone https://github.com/Jamil-Bailony/Memory-Game.git
+```
+or download it.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Usage
 
-## Contributing
+Open the index.html file from your favorite browser and enjoy playing the game.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+## Dependencies
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+You should enable javascript in your browser to be able to play the game. Ther are not any other dependencies.
+
+## License
+
+This project is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
